@@ -10,80 +10,40 @@ using System.Windows.Forms;
 
 namespace TicTacToe
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
-        static bool GameLock = false;
-        static int Side = 1;
-        static int[] Board = {  0, 0, 0,
-                                0, 0, 0,
+        public static bool GameLock = false;
+        public static int side = 1;
+        public static int[] board = {  0, 0, 0,
+								0, 0, 0,
                                 0, 0, 0 };
+
         public void IO(int sq)
         {
-            Board[sq] = Side;
-            if (WinCheck())
+            board[sq] = side;
+            if (Result.WinCheck())
             {
                 GameLock = true;
-                if (Side == 1)
+                if (side == 1)
                     WinDrawText.Text = "X wins";
                 else
                     WinDrawText.Text = "O wins";
             }
-            else if (DrawCheck())
+            else if (Result.DrawCheck())
             {
                 WinDrawText.Text = "Oh no, a draw D: !!!";
             }
-            if (Side == 1)
+            if (side == 1)
             {
-                Side = 2;
+                side = 2;
             }
             else
             {
-                Side = 1;
+                side = 1;
             }
         }
 
-        static bool WinCheck()
-        {
-            if (Board[0] == Side)
-            {
-                if (Board[1] == Side && Board[2] == Side)
-                    return true;
-                if (Board[3] == Side && Board[6] == Side)
-                    return true;
-            }
-            if (Board[8] == Side)
-            {
-                if (Board[7] == Side && Board[6] == Side)
-                    return true;
-                if (Board[5] == Side && Board[2] == Side)
-                    return true;
-            }
-            if (Board[4] == Side)
-            {
-                if (Board[3] == Side && Board[5] == Side)
-                    return true;
-                if (Board[1] == Side && Board[7] == Side)
-                    return true;
-                if (Board[0] == Side && Board[8] == Side)
-                    return true;
-                if (Board[2] == Side && Board[6] == Side)
-                    return true;
-            }
-
-            return false;
-        }
-
-        static bool DrawCheck()
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                if (Board[i] == 0)
-                    return false;
-            }
-            return true;
-        }
-
-        public Form1()
+        public Game()
         {
             InitializeComponent();
         }
@@ -92,7 +52,7 @@ namespace TicTacToe
         {
             if (button0.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button0.Text = "X";
                     IO(0);
@@ -104,11 +64,11 @@ namespace TicTacToe
                 }
             } 
         }
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (button1.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button1.Text = "X";
                     IO(1);
@@ -120,11 +80,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             if (button2.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button2.Text = "X";
                     IO(2);
@@ -136,11 +96,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button3_Click_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             if (button3.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button3.Text = "X";
                     IO(3);
@@ -152,11 +112,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button4_Click_1(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             if (button4.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button4.Text = "X";
                     IO(4);
@@ -168,11 +128,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button5_Click_1(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             if (button5.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button5.Text = "X";
                     IO(5);
@@ -184,11 +144,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button6_Click_1(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             if (button6.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button6.Text = "X";
                     IO(6);
@@ -200,11 +160,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button7_Click_1(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
             if (button7.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button7.Text = "X";
                     IO(7);
@@ -216,11 +176,11 @@ namespace TicTacToe
                 }
             }
         }
-        private void button8_Click_1(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
             if (button8.Text == "-" && GameLock == false)
             {
-                if (Side == 1)
+                if (side == 1)
                 {
                     button8.Text = "X";
                     IO(8);                }
@@ -235,7 +195,7 @@ namespace TicTacToe
         private void buttonReset_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 9; i++)
-                Board[i] = 0;
+                board[i] = 0;
             button0.Text = "-";
             button1.Text = "-";
             button2.Text = "-";
@@ -245,7 +205,7 @@ namespace TicTacToe
             button6.Text = "-";
             button7.Text = "-";
             button8.Text = "-";
-            Side = 1;
+            side = 1;
             WinDrawText.Text = "";
             GameLock = false;
         }
