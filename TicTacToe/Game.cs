@@ -14,9 +14,9 @@ namespace TicTacToe
     {
         public static bool GameLock = false;
         public static int side = 1;
-        public static int[] board = {  0, 0, 0,
-								0, 0, 0,
-                                0, 0, 0 };
+        public static int[] board = {  -1, -1, -1,
+								-1, -1, -1,
+                                -1, -1, -1 };
 
         public void IO(int sq)
         {
@@ -33,14 +33,7 @@ namespace TicTacToe
             {
                 WinDrawText.Text = "Oh no, a draw D: !!!";
             }
-            if (side == 1)
-            {
-                side = 2;
-            }
-            else
-            {
-                side = 1;
-            }
+			side ^= 1;
         }
 
         public Game()
@@ -195,7 +188,8 @@ namespace TicTacToe
         private void buttonReset_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 9; i++)
-                board[i] = 0;
+                board[i] = -1;
+
             button0.Text = "-";
             button1.Text = "-";
             button2.Text = "-";

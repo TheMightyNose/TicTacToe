@@ -37,7 +37,7 @@
         {
             for (int i = 0; i < 9; i++)
             {
-                if (Game.board[i] == 0)
+                if (Game.board[i] == -1)
                     return false;
             }
             return true;
