@@ -2,31 +2,31 @@
 {
     public static class Result
     {
-        public static bool WinCheck()
+        public static bool WinCheck(Board board)
         {
-            if (Game.board[0] == Game.side)
+            if (board.board[0] == board.side)
             {
-                if (Game.board[1] == Game.side && Game.board[2] == Game.side)
+                if (board.board[1] == board.side && board.board[2] == board.side)
                     return true;
-                if (Game.board[3] == Game.side && Game.board[6] == Game.side)
+                if (board.board[3] == board.side && board.board[6] == board.side)
                     return true;
             }
-            if (Game.board[8] == Game.side)
+            if (board.board[8] == board.side)
             {
-                if (Game.board[7] == Game.side && Game.board[6] == Game.side)
+                if (board.board[7] == board.side && board.board[6] == board.side)
                     return true;
-                if (Game.board[5] == Game.side && Game.board[2] == Game.side)
+                if (board.board[5] == board.side && board.board[2] == board.side)
                     return true;
             }
-            if (Game.board[4] == Game.side)
+            if (board.board[4] == board.side)
             {
-                if (Game.board[3] == Game.side && Game.board[5] == Game.side)
+                if (board.board[3] == board.side && board.board[5] == board.side)
                     return true;
-                if (Game.board[1] == Game.side && Game.board[7] == Game.side)
+                if (board.board[1] == board.side && board.board[7] == board.side)
                     return true;
-                if (Game.board[0] == Game.side && Game.board[8] == Game.side)
+                if (board.board[0] == board.side && board.board[8] == board.side)
                     return true;
-                if (Game.board[2] == Game.side && Game.board[6] == Game.side)
+                if (board.board[2] == board.side && board.board[6] == board.side)
                     return true;
             }
 
@@ -37,7 +37,7 @@
         {
             for (int i = 0; i < 9; i++)
             {
-                if (Game.board[i] == -1)
+                if (Game.board.board[i] == -1)
                     return false;
             }
             return true;

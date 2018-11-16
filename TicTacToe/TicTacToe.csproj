@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bot\Board.cs" />
+    <Compile Include="bot\Bot.cs" />
+    <Compile Include="bot\Move.cs" />
+    <Compile Include="bot\Movegen.cs" />
+    <Compile Include="bot\MoveList.cs" />
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,5 +86,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

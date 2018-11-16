@@ -14,14 +14,14 @@ namespace TicTacToe
     {
         public static bool GameLock = false;
         public static int side = 1;
-        public static int[] board = {  -1, -1, -1,
-								-1, -1, -1,
-                                -1, -1, -1 };
 
-        public void IO(int sq)
+
+		public static Board board = new Board();
+
+		public void IO(int sq)
         {
-            board[sq] = side;
-            if (Result.WinCheck())
+            board.board[sq] = side;
+            if (Result.WinCheck(board))
             {
                 GameLock = true;
                 if (side == 1)
@@ -34,6 +34,7 @@ namespace TicTacToe
                 WinDrawText.Text = "Oh no, a draw D: !!!";
             }
 			side ^= 1;
+			board.side = side;
         }
 
         public Game()
@@ -188,7 +189,7 @@ namespace TicTacToe
         private void buttonReset_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 9; i++)
-                board[i] = -1;
+                board.board[i] = -1;
 
             button0.Text = "-";
             button1.Text = "-";
